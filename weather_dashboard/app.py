@@ -3,7 +3,7 @@ import requests, os
 
 app = Flask(__name__)
 
-API_KEY = os.getenv("a2c89d49f756c57270b4d334a836fee3")
+API_KEY = os.getenv("OPENWEATHER_API_KEY")
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -12,6 +12,7 @@ def index():
         city = request.form.get("city")
         if city:
             url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+
             response = requests.get(url)
             if response.status_code == 200:
                 weather = response.json()
