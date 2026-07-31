@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route("/", methods=["GET", "POST"])
 def index():
     weather = None
-    api_key = os.environ.get("OPENWEATHER_API_KEY")
+    api_key = os.environ.get("92ed897830bdc86d31e49956f4f5d3ec")
 
     if request.method == "POST":
         city = request.form.get("city", "Chennai")  # safe default
